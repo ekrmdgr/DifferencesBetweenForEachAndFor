@@ -21,11 +21,23 @@ namespace ConsoleApp3
 
             // Example1();
 
-            Example2();
+            // Example2();
 
             // Example3();
 
+            Example4();
+
             Console.ReadLine();
+        }
+
+        private static void Example4()
+        {
+            int i = 0;
+            while (i < 100)
+            {
+                Task.Run(() => { Console.WriteLine(i); });
+                i++;
+            }
         }
 
         private static void Example3()
@@ -48,7 +60,7 @@ namespace ConsoleApp3
                 });
             }
 
-            for (int i = 0; i < list.Count-1; i++)
+            for (int i = 0; i < list.Count - 1; i++)
             {
                 new Thread(() => { WriteToConsole(list[i]); }).Start();
             }
